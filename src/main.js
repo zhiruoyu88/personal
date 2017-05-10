@@ -10,11 +10,6 @@ import vueRouter from 'vue-router'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(vueRouter)
-// Vue.use(Submenu)
-// Vue.use(MenuItem)
-// Vue.use(MenuItemGroup)
-// Vue.use(subMenu)
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

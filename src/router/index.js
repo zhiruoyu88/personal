@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import List from '@/components/List'
-import About from '@/components/About'
+import About from '@/views/About'
+import Main from '@/views/main/Main'
 
 Vue.use(Router)
 
@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'List',
-      component: List
+      name: 'Main',
+      component: Main
     },{
         path: '/about',
         name: 'About',
@@ -18,8 +18,8 @@ export default new Router({
     },
     {
       path: '/list',
-      name: 'List',
-      component: List
+      name: 'Main',
+      component: Main
     }
   ]
 })

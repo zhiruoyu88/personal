@@ -27,6 +27,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+html,body {
+  min-height: 100%;
+  background-color: #efefef
+}
 html,body,div,p,h1,h2,h3,h4,h5,h6,ul,li {
   margin: 0;
   padding: 0;
