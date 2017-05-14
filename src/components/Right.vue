@@ -4,8 +4,10 @@
 			<input v-on:keyup.enter="searchInfo" v-model="keywords" placeholder="请输入您要搜索的关键词" type="text">	
 			<i @click="searchInfo()" class="search-icon"></i>	
 		</div>
-		<div class="item">
-			
+		<div class="tags item">
+			<el-button type="info"><span>漫<i class="el-icon-star-off"></i>生活</span></el-button>
+			<el-button type="info"><span>学无止境</span></el-button>
+			<el-button type="info"><span>碎言碎语</span></el-button>
 		</div>
 	</div>
 </template>
@@ -20,7 +22,33 @@
 		},
 		methods: {
 			searchInfo: function(){
-				console.log(this.keywords);
+				let url = 'http://localhost/personal/api/user.php'
+				let params = new URLSearchParams();
+				params.append('name', 'zhi');
+				params.append('age', 25);
+
+				this.$ajax.post(url,{name:'zhi',age:25},{
+					headers: {
+					    'Content-Type': 'application/x-www-form-urlencoded',   //request payload  转化为formdata
+					}
+				}).then(data => {console.log(data)})
+				// this.$ajax({
+				// 	method:'post',
+				// 	headers: {
+				// 	    'Content-Type': 'application/x-www-form-urlencoded',
+				// 	},
+				// 	url:'http://localhost/personal/api/user.php',
+				// 	data:{
+				// 		name:'智若雨',
+				// 		age:25
+				// 	},
+				// 	success:function(data){
+				// 		console.log(data);
+				// 	},
+				// 	error:function(err){
+				// 		console.log(err)
+				// 	}
+				// })
 			}
 		}
 	}
@@ -33,11 +61,15 @@
 	}
 	.item {
 		border-radius: 5px;
-		background-color: #fff
+		background-color: #fff;
+		margin-bottom: 15px;
 	}
 	.search {
 		padding:15px 10px;
 		position: relative;
+	}
+	.tags {
+		padding:8px 10px;
 	}
 	.search input {
 		border:1px solid #ddd;
