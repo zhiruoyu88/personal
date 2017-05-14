@@ -1,7 +1,7 @@
 <template>
 	<div class="right">
 		<div class="search item">
-			<input v-model="keywords" placeholder="请输入您要搜索的关键词" type="text">	
+			<input v-on:keyup.enter="searchInfo" v-model="keywords" placeholder="请输入您要搜索的关键词" type="text">	
 			<i @click="searchInfo()" class="search-icon"></i>	
 		</div>
 		<div class="item">
@@ -20,7 +20,7 @@
 		},
 		methods: {
 			searchInfo: function(){
-				console.log(this.keywords)
+				console.log(this.keywords);
 			}
 		}
 	}
