@@ -13,25 +13,30 @@
 </template>
 
 <script>
+	import {getUser} from '../service/getData'
 	export default {
 		name: 'Right',
 		data () {
 			return {
-				keywords:''
+				keywords:'',
+				userInfo:null
 			}
 		},
 		methods: {
-			searchInfo: function(){
-				let url = 'http://localhost/personal/api/user.php'
+			async searchInfo(){
 				let params = new URLSearchParams();
 				params.append('name', 'zhi');
 				params.append('age', 25);
+				this.userInfo = await getUser(params)
+				console.log(this.userInfo)
+				// let url = 'http://localhost/personal/api/user.php'
+				
 
-				this.$ajax.post(url,params,{
-					headers: {
-					    'Content-Type': 'application/x-www-form-urlencoded',   //request payload  转化为formdata
-					}
-				}).then(data => {console.log(data)})
+				// this.$ajax.post(url,params,{
+				// 	headers: {
+				// 	    'Content-Type': 'application/x-www-form-urlencoded',   //request payload  转化为formdata
+				// 	}
+				// }).then(data => {console.log(data)})
 				// this.$ajax({
 				// 	method:'post',
 				// 	headers: {
