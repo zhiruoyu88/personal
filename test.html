@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var $scrollTop = document.body.scrollTop,
+        $clientHeight = window.screen.height,
+        goTop = document.getElementById('goTop2'),
+        idGoTop = document.getElementById('goTop'),
+        timer1, timer2;
+    if ($scrollTop > $clientHeight) {
+        goTop.style.display = "block";
+    }
+    var abc = function() {
+            $scrollTop = document.body.scrollTop + document.documentElement.scrollTop;
+            if ($scrollTop > $clientHeight) {
+                goTop.style.display = "block";
+            } else {
+                goTop.style.display = "none";
+            }
+        };
+    addHandleEvent(window, 'scroll', abc);
+    idGoTop.onmouseenter = function() {
+        var width = 45;
+        if (timer2) {
+            clearInterval(timer2);
+        }
+        for (var i = 0; i <= 300; i++) {
+            timer1 = setTimeout(function() {
+                width = width + 0.2624584717608;
+                idGoTop.style.width = width + 'px';
+            }, i);
+        }
+    }
+    idGoTop.onmouseleave = function() {
+        var width = 125;
+        if (timer1) {
+            clearInterval(timer1);
+        }
+        for (var i = 0; i <= 300; i++) {
+            timer2 = setTimeout(function() {
+                width = width - 0.2624584717608;
+                idGoTop.style.width = width + 'px';
+            }, i);
+        }
+    }
+    idGoTop.onclick = function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    function addHandleEvent(obj, type, func) {
+        if (obj.attachEvent) {
+            obj.attachEvent('on' + type, func);
+            return true;
+        } else if (obj.addEventListener) {
+            obj.addEventListener(type, func, false);
+            return true;
+        } else {
+            obj['on' + type] = func;
+        }
+    }
+    </script>
+</body>
+</html>

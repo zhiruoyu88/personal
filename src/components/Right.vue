@@ -27,7 +27,7 @@
 				params.append('name', 'zhi');
 				params.append('age', 25);
 
-				this.$ajax.post(url,{name:'zhi',age:25},{
+				this.$ajax.post(url,params,{
 					headers: {
 					    'Content-Type': 'application/x-www-form-urlencoded',   //request payload  转化为formdata
 					}
