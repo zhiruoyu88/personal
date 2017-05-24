@@ -25,10 +25,10 @@
 		methods: {
 			async searchInfo(){
 				let params = new URLSearchParams();
-				params.append('name', 'zhi');
-				params.append('age', 25);
+				params.append('name', 'admin');
+				params.append('password', 'admin');
 				this.userInfo = await getUser(params)
-				console.log(this.userInfo)
+				this.userInfo.json().then(function(data){console.log(data)})
 				// let url = 'http://localhost/personal/api/user.php'
 				
 

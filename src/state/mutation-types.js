@@ -2,6 +2,6 @@
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGOUT_SUCESS = 'LOGOUT_SUCESS'
 
-// ATTICLE
+// ARTICLE
 
-export const 
+export const ARTICLE_LIST = 'ARTICLE_LIST'

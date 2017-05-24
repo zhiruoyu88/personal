@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import About from '@/views/About'
 import Main from '@/views/main/Main'
-
+import login from '@/views/login'
+import write from '@/views/write'
 Vue.use(Router)
 
 export default new Router({
@@ -17,9 +18,19 @@ export default new Router({
         component: About
     },
     {
-      path: '/Main',
+      path: '/main',
       name: 'Main',
       component: Main
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:login
+    },
+    {
+      path:'/write',
+      name:'write',
+      component:write
     }
   ]
 })

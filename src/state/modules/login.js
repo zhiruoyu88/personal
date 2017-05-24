@@ -1,4 +1,4 @@
-import * as types from '../mutation-tyoes'
+import * as types from '../mutation-types'
 
 let localStorage = window.localStorage
 

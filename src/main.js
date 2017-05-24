@@ -7,6 +7,7 @@ import 'element-theme-default'
 import ElementUI from 'element-ui'
 import vueRouter from 'vue-router'
 import axios from 'axios'
+import store from './state/'
 
 Vue.prototype.$ajax = axios
 
@@ -15,6 +16,7 @@ Vue.use(ElementUI)
 Vue.use(vueRouter)
 new Vue({
   el: '#app',
+  store,
   router,
   template: '<App/>',
   components: { App }

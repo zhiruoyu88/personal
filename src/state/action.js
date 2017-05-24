@@ -11,6 +11,6 @@ export default {
         state
     }) {
         let res = await getUser()
-        commit(LOGOUT_SUCESS,res)
+        commit(LOGIN_SUCCESS,res)
     }
 }
