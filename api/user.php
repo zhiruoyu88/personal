@@ -1,14 +1,5 @@
 <?php
-// 指定允许其他域名访问  
-header('Access-Control-Allow-Origin:*');  
-// 响应类型  
-header('Access-Control-Allow-Methods:POST');  
-// 响应头设置  
-header('Access-Control-Allow-Headers:x-requested-with,content-type'); 
-$servername = "localhost";
-$username = "root";
-$psw = "";
-$con = mysql_connect($servername, $username, $psw);
+    include './connect.php';
 // if($con->connect_error){
 //     die('连接失败: '.$conn->connect_error);
 // }
@@ -20,16 +11,19 @@ $con = mysql_connect($servername, $username, $psw);
     // form data
     // print_r(json_encode($_POST));
     
-
+    function error ($msg){
+        return array('success'=>false,'msg' => $msg)
+    }
     $pname = $_POST["name"];
     $password = $_POST["password"];
     if(isset($_GET["logout"])){
-        $glogout = $_GET["logout"];
+        $logout = $_POST['logout'];
+        $id = $_POST['id'];
         exit;
     }
     $postUserData = isset($pname)?$pname:'提交的空';
     if($postUserData=='提交的空'){
-        $data  = json_encode(array('success'=>false,'msg' => $postUserData ));
+        $data  = json_encode(error($postUserData));
         echo $data;
         exit;
     }

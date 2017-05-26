@@ -19,6 +19,7 @@
 
 <script>
     import {getUser} from '../service/getData'
+    import {mapState, mapMutations} from 'vuex'
   export default {
     data() {
         var checkUserName = (rule,value,callback) => {
@@ -50,6 +51,9 @@
       };
     },
     methods: {
+        ...mapMutations([
+            'LOGIN_SUCCESS'
+            ]),
       open4() {
         this.$message.error('登录出错，请检查您的用户名或者密码是否正确');
       },
@@ -57,15 +61,14 @@
         var _this = this;
         _this.$refs[formName].validate(async (valid) => {
           if (valid) {
-              let params = new URLSearchParams();
+                let params = new URLSearchParams();
                 params.append('name', this.ruleForm2.username);
                 params.append('password', this.ruleForm2.pass);
                 this.userInfo = await getUser(params)
                 this.userInfo.json().then(function(data){
                     if(data.success){
-                        console.log(_this)
-                        _this.state.LOGIN_SUCCESS(data);
-                        _this.router.go('/write');
+                        _this.LOGIN_SUCCESS(data.data);
+                        _this.$router.go(-1)
                     }else {
                         _this.open4();
                     }
@@ -83,7 +86,7 @@
   }
 </script>
 
-<style nosope>
+<style scoped>
     .login-wp form {
         position: absolute;
         z-index:9;

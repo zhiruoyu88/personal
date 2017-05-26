@@ -3,14 +3,19 @@ import Vuex from 'vuex'
 import action from './action'
 import getters from './getters'
 import login from './modules/login'
+import mutations from './mutations'
 
 Vue.use(Vuex)
+const state = {
+    userInfo:null,
+    hasLogin:null
+}
 
 export default new Vuex.Store ({
+    state:state,
     action:action,
     getters:getters,
-    modules:{
-        login
-    },
+    login,
+    mutations,
     strict:true
 })

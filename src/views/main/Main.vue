@@ -24,7 +24,7 @@
 	}
 </script>
 
-<style noscope>
+<style scoped>
 	.main {
 		width:1190px;
 		margin:20px auto 0;

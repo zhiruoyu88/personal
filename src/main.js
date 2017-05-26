@@ -5,15 +5,13 @@ import App from './App'
 import router from './router'
 import 'element-theme-default'
 import ElementUI from 'element-ui'
-import vueRouter from 'vue-router'
 import axios from 'axios'
-import store from './state/'
+import store from './state/index'
 
 Vue.prototype.$ajax = axios
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-Vue.use(vueRouter)
 new Vue({
   el: '#app',
   store,

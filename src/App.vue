@@ -5,11 +5,24 @@
 </template>
 
 <script>
+import {mapState, mapMutations} from 'vuex'
+import {getStore} from '../config/until'
 export default {
   name: 'app',
   data () {
     return {
 
+    }
+  },
+  methods: {
+    ...mapMutations([
+        'INIT_LOGIN'
+        ])
+  },
+  created () {
+    let storeUserInfo = getStore('userInfo');
+    if(storeUserInfo){
+      this.INIT_LOGIN(storeUserInfo);
     }
   }
 }
