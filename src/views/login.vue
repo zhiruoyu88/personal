@@ -54,8 +54,8 @@
         ...mapMutations([
             'LOGIN_SUCCESS'
             ]),
-      open4() {
-        this.$message.error('登录出错，请检查您的用户名或者密码是否正确');
+      open4(msg) {
+        this.$message.error('登录出错，'+msg);
       },
        submitForm(formName) {
         var _this = this;
@@ -70,7 +70,7 @@
                         _this.LOGIN_SUCCESS(data.data);
                         _this.$router.go(-1)
                     }else {
-                        _this.open4();
+                        _this.open4(data.msg);
                     }
                 })
           } else {
@@ -117,5 +117,8 @@
     }
     .el-input .el-input__inner {
         width:88%;
+    }
+    .el-form-item {
+        padding-right:30px;
     }
 </style>

@@ -11,7 +11,7 @@
                     <el-menu-item index="2-3">碎言碎语</el-menu-item>
                 </el-submenu>
                 <el-menu-item index="3"><router-link to="/about">个人信息</router-link></el-menu-item>
-                <el-submenu index="3">
+                <el-submenu v-if="hasLogin" index="3">
                     <template slot="title">{{userInfo.username}}</template>
                     <el-menu-item index="3-1">个人信息</el-menu-item>
                     <el-menu-item index="3-2">退出</el-menu-item>

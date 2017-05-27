@@ -69,4 +69,13 @@
 		top:22px;
 		cursor: pointer;
 	}
+	.el-button--info {
+		margin: 8px 0 0px 30px !important;
+	}
+	.tags[data-v-02dc85df] {
+		padding-bottom: 16px;
+	}
+	.el-tag {
+		cursor: pointer;
+	}
 </style>

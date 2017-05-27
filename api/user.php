@@ -1,5 +1,5 @@
 <?php
-    include './connect.php';
+include './connect.php';
 // if($con->connect_error){
 //     die('连接失败: '.$conn->connect_error);
 // }
@@ -11,9 +11,9 @@
     // form data
     // print_r(json_encode($_POST));
     
-    function error ($msg){
-        return array('success'=>false,'msg' => $msg)
-    }
+    // function error ($msg){
+    //     return array('success'=>false,'msg' => $msg)
+    // };
     $pname = $_POST["name"];
     $password = $_POST["password"];
     if(isset($_GET["logout"])){
