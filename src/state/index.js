@@ -5,6 +5,10 @@ import getters from './getters'
 
 Vue.use(Vuex)
 
+const state = {
+    userinfo: null,
+    haslogin:false
+}
 export default new Vuex.Store ({
     action:action,
     getters:getters,
