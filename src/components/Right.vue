@@ -13,48 +13,24 @@
 </template>
 
 <script>
+	import {getUser} from '../service/getData'
 	export default {
 		name: 'Right',
 		data () {
 			return {
-				keywords:''
+				keywords:'',
+				userInfo:null
 			}
 		},
 		methods: {
-			searchInfo: function(){
-				let url = 'http://localhost/personal/api/user.php'
-				let params = new URLSearchParams();
-				params.append('name', 'zhi');
-				params.append('age', 25);
-
-				this.$ajax.post(url,{name:'zhi',age:25},{
-					headers: {
-					    'Content-Type': 'application/x-www-form-urlencoded',   //request payload  转化为formdata
-					}
-				}).then(data => {console.log(data)})
-				// this.$ajax({
-				// 	method:'post',
-				// 	headers: {
-				// 	    'Content-Type': 'application/x-www-form-urlencoded',
-				// 	},
-				// 	url:'http://localhost/personal/api/user.php',
-				// 	data:{
-				// 		name:'智若雨',
-				// 		age:25
-				// 	},
-				// 	success:function(data){
-				// 		console.log(data);
-				// 	},
-				// 	error:function(err){
-				// 		console.log(err)
-				// 	}
-				// })
+			searchInfo:()=>{
+				console.log('search')
 			}
 		}
 	}
 </script>
 
-<style noscope> 
+<style scoped> 
 	.right {
 		float:right;
 		width:300px;
@@ -91,6 +67,15 @@
 		background-size: 20px 20px;
 		right:12%;
 		top:22px;
+		cursor: pointer;
+	}
+	.el-button--info {
+		margin: 8px 0 0px 30px !important;
+	}
+	.tags[data-v-02dc85df] {
+		padding-bottom: 16px;
+	}
+	.el-tag {
 		cursor: pointer;
 	}
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <navbar></navbar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import navbar from './components/navbar'
+import {mapState, mapMutations} from 'vuex'
+import {getStore} from '../config/until'
 export default {
   name: 'app',
   data () {
@@ -14,8 +14,16 @@ export default {
 
     }
   },
-  components: {
-    navbar: navbar
+  methods: {
+    ...mapMutations([
+        'INIT_LOGIN'
+        ])
+  },
+  created () {
+    let storeUserInfo = getStore('userInfo');
+    if(storeUserInfo){
+      this.INIT_LOGIN(storeUserInfo);
+    }
   }
 }
 </script>
