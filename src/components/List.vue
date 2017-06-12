@@ -7,10 +7,12 @@
           <el-tag>{{article.tag }}</el-tag>
       </li>
     </ul>
+    <pagination></pagination>
   </div>
 </template>
 
 <script>
+  import pagination from './pagination'
   export default {
     name: 'list',
     data () {
@@ -39,6 +41,9 @@
         let str = value.length>num ? (value.substr(0,num)+'...'):value
         return str;
       }
+    },
+    components:{
+      pagination:pagination
     }
   }
 </script>

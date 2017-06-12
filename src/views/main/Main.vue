@@ -22,14 +22,14 @@
 		name: 'main',
 		data(){
 			return {
-				isLoading:false
+				isLoading:true
 			}
 		},
 		components: {
 			list: List,
 			right: Right,
 			navbar: navbar,
-			loading: loading
+			loading: loading,
 		},
 		watch: {
 		  '$route': function () {
@@ -44,7 +44,7 @@
 			getData:new Promise(function(resolve,reject){
 				setTimeout(function(){
 					resolve()
-				},1000);
+				},4000);
 			})
 		}
 	}

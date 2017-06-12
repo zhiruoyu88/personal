@@ -1,5 +1,5 @@
 <template>
-	<div v-if="$loadingRouteData">
+	<div>
 	    <div class="white-widget grey-bg author-area">
 	    <div class="auth-info row">
 	    <div class="timeline-wrapper">
