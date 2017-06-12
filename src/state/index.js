@@ -11,10 +11,6 @@ const state = {
     hasLogin:null
 }
 
-const state = {
-    userinfo: null,
-    haslogin:false
-}
 export default new Vuex.Store ({
     state:state,
     action:action,
