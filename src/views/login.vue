@@ -20,6 +20,7 @@
 <script>
     import {getUser} from '../service/getData'
     import {mapState, mapMutations} from 'vuex'
+    import vueRsource from 'vue-resource'
   export default {
     data() {
         var checkUserName = (rule,value,callback) => {
@@ -80,6 +81,7 @@
         });
       },
       resetForm(formName) {
+        console.log(this.$refs)
         this.$refs[formName].resetFields();
       }
     }

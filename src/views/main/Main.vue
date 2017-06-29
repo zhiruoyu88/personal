@@ -1,5 +1,5 @@
 <template>
-	<div v-if="!isLoading" class="container">
+	<div class="container">
 		<navbar></navbar>
 		<div class="main">
 			<list></list>
@@ -7,11 +7,7 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-	<div  v-else>
-		<loading></loading>
-	</div>
 </template>
-
 <script>
 	import List from '../../components/List'
 	import Right from '../../components/Right'
@@ -22,7 +18,8 @@
 		name: 'main',
 		data(){
 			return {
-				isLoading:true
+				isLoading:true,
+				text:'hello'
 			}
 		},
 		components: {
@@ -32,20 +29,10 @@
 			loading: loading,
 		},
 		watch: {
-		  '$route': function () {
-		    var self = this
-		    self.isLoading = true
-		    self.getData().then(function () {
-		      self.isLoading = false
-		    })
-		  }
+		  
 		},
 		methods:{
-			getData:new Promise(function(resolve,reject){
-				setTimeout(function(){
-					resolve()
-				},4000);
-			})
+			
 		}
 	}
 </script>
